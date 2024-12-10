@@ -9,6 +9,7 @@
     <modules>
         <module>flink</module>
         <module>calcite</module>
+        <module>spark</module>
     </modules>
 
     <properties>
