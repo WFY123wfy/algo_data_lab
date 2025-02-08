@@ -15,7 +15,8 @@ public class FlinkMetrics {
         conf.setString(RestOptions.BIND_PORT,"8081");
         //使用配置
         StreamExecutionEnvironment env = StreamExecutionEnvironment.createLocalEnvironmentWithWebUI(conf);
-        env.setParallelism(1);
+        env.disableOperatorChaining();
+        env.setParallelism(4);
         DataStreamSource<String> source = env.socketTextStream("localhost", 9999);
         SingleOutputStreamOperator<String> map = source.map(new MyMapper());
         map.print();

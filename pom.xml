@@ -10,6 +10,7 @@
         <module>flink</module>
         <module>calcite</module>
         <module>spark</module>
+        <module>spring</module>
     </modules>
 
     <properties>
