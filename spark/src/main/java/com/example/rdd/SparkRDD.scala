@@ -9,9 +9,12 @@ object SparkRDD {
       .appName(this.getClass.getSimpleName).master("local").config("spark.driver.bindAddress", "127.0.0.1")
       .getOrCreate()
 
-    // 创建一个 RDD
+    // 从内存中创建RDD
     val data = List(1, 2, 3, 4, 5)
+    // parallelize：并行
     val rdd = spark.sparkContext.parallelize(data)
+    // makeRDD方法在底层实现其实就是调用的rdd对象的parallelize方法
+    val rdd1 = spark.sparkContext.makeRDD(data)
 
     // 转换操作：map
     val squaredRDD = rdd.map(x => x * x)
