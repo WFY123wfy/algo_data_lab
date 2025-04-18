@@ -1,6 +1,6 @@
 package com.example.dataframe
 
-import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.{Encoders, Row, SparkSession}
 import org.apache.spark.sql.functions.avg
 
 object SparkDataFrame {
@@ -16,8 +16,13 @@ object SparkDataFrame {
 
     // 将相同的名字分到一起，聚合年龄，并计算平均值
     val avgDF = dataDF.groupBy("name").agg(avg("age"))
-
-    // 展示最终的执行结果
-    avgDF.show()
+    val filterDf = dataDF.filter(row => {
+      val name = row.getAs[String]("name")
+      val age = row.getAs[Int]("age")
+      println(s"""name: $name, age: $age""")
+      true
+    }).show()
+//    // 展示最终的执行结果
+//    avgDF.show()
   }
 }
