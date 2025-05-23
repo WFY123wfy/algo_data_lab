@@ -41,7 +41,5 @@ def forward(network, x):
     return y
 
 if __name__ == '__main__':
-    network = init_network()
-    x = np.array([[1.0, 0.5], [1.0, 0.5], [1.0, 0.5]])
-    y = forward(network, x)
-    print(y) # [0.31682708 0.69627909]
+    arr = np.random.randn(2, 3)
+    print(arr)

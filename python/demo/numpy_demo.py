@@ -79,8 +79,4 @@ def softmax(a):
     return y
 
 if __name__ == '__main__':
-    a = np.array([0.1, 1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7, 8.8, 9.9])
-    choice = np.random.choice(10, 5)
-    print(choice)
-    choice_arr = a[choice]
-    print(choice_arr)
+    pass
